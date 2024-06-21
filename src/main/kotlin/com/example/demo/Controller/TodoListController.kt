@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.RestController
 class TodoListController {
     @PostMapping("/api/v1/todo")
     fun createTodo(
-        @RequestBody title: String,
-        @RequestBody contents: String,
-        @RequestBody userId: Long,
+        @RequestBody request:CreateTodoRequest,
     ): Boolean {
         return false
     }
+
+    data class CreateTodoRequest(
+        val title :String,
+        val content:String,
+        val writer: Long,
+    )
 }
